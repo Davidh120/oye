@@ -1,0 +1,76 @@
+/* fonts */
+
+@font-face {
+	font-family: "RobotoSlab-VariableFont_wght";
+	src: url("RobotoSlab-VariableFont_wght.ttf");
+}
+
+#logooye,
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: Italic;
+}
+
+p,
+th {
+	font-family: RobotoSlab-VariableFont_wght;
+}
+
+#datosTopCanciones {
+	color: #007bff;
+	font-family: Italic;
+}
+
+#registro p {
+	font-size: 12px;
+}
+
+/* carousel */
+
+#carousel {
+	border: 3px solid #c0c0c0;
+	border-style: outset;
+}
+
+/* iconos de registro y inicio de sesion */
+
+#correoSesion,
+#correoRegistro {
+	background-image: url(../images/id.svg);
+	background-repeat: no-repeat;
+	background-position: 28em center;
+}
+
+#contraseñaSesion,
+#contraseñaRegistro {
+	background-image: url(../images/lock.svg);
+	background-repeat: no-repeat;
+	background-position: 28em center;
+}
+
+#confirmacion {
+	background-image: url(../images/lock.svg);
+	background-repeat: no-repeat;
+	background-position: 28em center;
+}
+
+/* buscador */
+
+#buscador {
+	width: 100%;
+}
+
+#buscador::placeholder {
+	background-image: url(../images/search.svg);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+/* footer */
+
+#footeriniciarsesion {
+	margin-top: 18.1em;
+}
