@@ -2,11 +2,12 @@
 
 var topAudios = [];
 
-$(document).ready(function () {
-	$.ajax({
-		url: "http://127.0.0.1:5500/datos.json",
-	}).done(function (respuesta) {
-		var canciones = respuesta.canciones;
+fetch('http://127.0.0.1:5500/assets/datos.json') //forma actual de hacerse usando fetch sin necesidad de usa ajax jquery
+.then((response) => {
+	return response.json()
+})
+.then((response) => {
+	var canciones = response.canciones;
 
 		for (var i = 0; i < canciones.length; i++) {
 			topAudios.push(canciones[i]);
@@ -25,14 +26,47 @@ $(document).ready(function () {
 			html += `
               <tr>
               <th class="d-none d-sm-block">${topAudios[j].nombre}</th>
-              <td class="text-left"><audio src="audios/${topAudios[j].ruta}" controls="" preload="auto"></audio></td>
+              <td class="text-left"><audio src="assets/audios/${topAudios[j].ruta}" controls="" preload="auto"></audio></td>
               </tr>
               `;
 		}
 
 		document.getElementById("datosTopCanciones").innerHTML = html;
-	});
-});
+})
+
+// var topAudios = [];
+
+// $(document).ready(function () {
+// 	$.ajax({
+// 		url: "http://127.0.0.1:5500/assets/datos.json",
+// 	}).done(function (respuesta) {
+// 		var canciones = respuesta.canciones;
+
+// 		for (var i = 0; i < canciones.length; i++) {
+// 			topAudios.push(canciones[i]);
+// 		}
+
+// 		topAudios = topAudios.sort(function (x, y) {
+// 			if (x.reproducciones < y.reproducciones) {
+// 				return 1;
+// 			}
+// 			return -1;
+// 		});
+
+// 		var html = "";
+
+// 		for (var j = 0; j < 3; j++) {
+// 			html += `
+//               <tr>
+//               <th class="d-none d-sm-block">${topAudios[j].nombre}</th>
+//               <td class="text-left"><audio src="audios/${topAudios[j].ruta}" controls="" preload="auto"></audio></td>
+//               </tr>
+//               `;
+// 		}
+
+// 		document.getElementById("datosTopCanciones").innerHTML = html;
+// 	});
+// });
 
 // buscador filtro
 
@@ -44,7 +78,7 @@ $(document).ready(function () {
 
 function filtroBusquedad() {
 	$.ajax({
-		url: "http://127.0.0.1:5500/datos.json",
+		url: "http://127.0.0.1:5500/assets/datos.json",
 	}).done(function (respuesta) {
 		canciones = respuesta.canciones;
 		contenedor.innerHTML = "";
@@ -53,10 +87,10 @@ function filtroBusquedad() {
 				contenedor.innerHTML += `
 				<div class="col-12 col-md-6 col-lg-4 my-2 pr-auto pr-lg-1" class="tarjeta">
                   <div class="card bg-secondary" style="width: 100%;">
-                    <img src="../images/icon_${canciones[i].icono}.svg" style="width:50%; height: 6em;" class="card-img-top m-auto" alt="...">
+                    <img src="../assets/images/icon_${canciones[i].icono}.svg" style="width:50%; height: 6em;" class="card-img-top m-auto" alt="...">
                     <div class="card-body bg-white rounded-bottom">
                      <h2 class="card-text text-center">${canciones[i].nombre}</h2>
-                     <audio src="../audios/${canciones[i].ruta}" controls preload="auto" style="width: 100%;"></audio>
+                     <audio src="../assets/audios/${canciones[i].ruta}" controls preload="auto" style="width: 100%;"></audio>
                     </div>
                   </div>
                 </div>
@@ -68,10 +102,10 @@ function filtroBusquedad() {
 					contenedor.innerHTML += `
 				<div class="col-12 col-md-6 col-lg-4 my-2 pr-auto pr-lg-1" class="tarjeta">
                   <div class="card bg-secondary" style="width: 100%;">
-                    <img src="../images/icon_${canciones[i].icono}.svg" style="width:50%; height: 6em;" class="card-img-top m-auto" alt="...">
+                    <img src="../assets/images/icon_${canciones[i].icono}.svg" style="width:50%; height: 6em;" class="card-img-top m-auto" alt="...">
                     <div class="card-body bg-white rounded-bottom">
                      <h2 class="card-text text-center">${canciones[i].nombre}</h2>
-                     <audio src="../audios/${canciones[i].ruta}" controls preload="auto" style="width: 100%;"></audio>
+                     <audio src="../assets/audios/${canciones[i].ruta}" controls preload="auto" style="width: 100%;"></audio>
                     </div>
                   </div>
                 </div>

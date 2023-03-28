@@ -6,11 +6,11 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		/>
-		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="../assets/css/style.css" />
 		<!--Bootstrap core css-->
 		<link
 			rel="stylesheet"
-			href="../bootstrap-4.6.0/dist/css/bootstrap.css"
+			href="../assets/bootstrap-4.6.0/dist/css/bootstrap.css"
 		/>
 	</head>
 
@@ -26,11 +26,11 @@
 							my-auto
 							font-size-lg
 						"
-						href="../home.html"
+						href="../index.html"
 						id="logooye"
 					>
 						<img
-							src="../images/logo.png"
+							src="../assets/images/logo.png"
 							alt="oye"
 							class="d-inline-block align-text-to my-auto"
 							id="oyelogo"
@@ -52,12 +52,12 @@
 					<div class="collapse navbar-collapse" id="barra">
 						<ul class="navbar-nav mx-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="../home.html"
+								<a class="nav-link font-weight-bolder" href="../index.html"
 									>Inicio</a
 								>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="canciones.html"
+								<a class="nav-link active font-weight-bolder" href="canciones.html"
 									>Canciones</a
 								>
 							</li>
@@ -66,7 +66,13 @@
 							<li class="nav-item">
 								<button
 									type="button"
-									class="btn btn-primary mx-0 mx-md-1 my-1"
+									class="
+										btn btn-primary
+										mx-0 mx-md-1
+										active
+										my-1
+										active
+									"
 									data-toggle="modal"
 									data-target="#staticBackdrop"
 								>
@@ -122,12 +128,7 @@
 							</li>
 							<li class="nav-item">
 								<button
-									class="
-										btn btn-primary
-										mx-0 mx-md-1
-										active
-										my-1
-									"
+									class="btn btn-primary mx-0 mx-md-1 my-1"
 								>
 									<a
 										href="iniciarsesion.html"
@@ -153,60 +154,39 @@
 			</nav>
 		</header>
 
-		<main>
+		<main onload="filtroBusquedad()">
 			<div class="py-5">
-				<div class="col-md-4 m-auto">
-					<h2 class="border-bottom">Inicio de Sesión</h2>
-					<form class="form-signin" id="registro">
-						<label for="inputEmail">Correo Electrónico</label>
-						<input
-							type="email"
-							id="correoSesion"
-							class="form-control"
-							placeholder="correo electrónico"
-							name="correo"
-						/>
-						<label for="inputPassword" class="my-2"
-							>Contraseña</label
-						>
-						<input
-							type="password"
-							id="contraseñaSesion"
-							class="form-control"
-							placeholder="contraseña"
-							name="contraseña"
-						/>
-						<button
-							class="btn btn-primary my-3"
-							type="submit"
-							value="Continuar"
-							onclick="return validar(this.form)"
-						>
-							continuar
-						</button>
-					</form>
+				<div class="col-md-8 m-auto">
+					<h1>Canciones</h1>
+					<input
+						type="search"
+						id="buscador"
+						class="form-control"
+						onkeyup="filtroBusquedad()"
+						name="buscador"
+						placeholder="&nbsp;&nbsp;&nbsp;&nbsp;buscar..."
+					/>
+					<div class="row" id="canciones"></div>
 				</div>
 			</div>
 		</main>
 
-		<footer
-			class="container-fluid py-1 bg-primary text-white"
-			id="footeriniciarsesion"
-		>
+		<footer class="container-fluid py-1 bg-primary text-white fixed-bottom">
 			<div class="row">
-				<div class="col text-left">Comparte la música</div>
-				<div class="col text-right">© Derechos reservados</div>
+				<div class="col text-left d-none d-sm-block">
+					Comparte la música
+				</div>
+				<div class="col text-center text-md-right">
+					© Derechos reservados
+				</div>
 			</div>
 		</footer>
 
+		<!-- jquery -->
+		<script src="../assets/js/jquery-3.3.1.min.js"></script>
 		<!-- jsmain -->
-		<script src="../js/main.js"></script>
+		<script src="../assets/js/main.js"></script>
 		<!-- Bootstrap -->
-		<script
-			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-			crossorigin="anonymous"
-		></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
 			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
